@@ -4,10 +4,41 @@
 <head>
 <meta charset="ISO-8859-1">
 <title>index dating</title>
-<link th:href=@{css/index.css} rel="stylesheet" type="text/css" media="screen" />
+<link th:href=@{css/index.css} rel="stylesheet" type="text/css"
+	media="screen" />
 </head>
 <body>
-<h1> Welcome on Dating! </h1>
+	<h1>Welcome on Dating!</h1>
+	<div class="form-style-3">
+		<form>
+			<fieldset>
+				<legend>Entrez vos Informations:</legend>
+				<label for="field1"><span>Nom <span class="required">*</span></span>
+				<input type="text" class="input-field" name="field1" value="" /></label>
+				 
+				<label for="field2"><span>Prenom <span class="required">*</span></span>
+				<input type="text" class="input-field" name="field2" value="" /></label> 
+				
+				<label for="field3"><span>Email <span class="required">*</span></span>
+				<input type="email" class="input-field" name="field3" value="" /></label> 
+				
+				<label for="field4"><span>Numero de Tel <span class="required">*</span></span>
+				<input type="text" class="input-field" name="field4" value="" /></label>
 
+				<label for="field5"><span>Sexe</span><select name="field5" class="select-field">
+						<option value="Femme">Femme</option>
+						<option value="Homme">Homme</option>
+						<option value="Pas renseigné">Pas renseigné</option>
+				</select></label>
+			</fieldset>
+			<fieldset>
+				<legend>Description:</legend>
+				<label for="field6"><span>Message 
+				<span class="required">*</span></span>
+				<textarea name="field6" class="textarea-field"></textarea></label> <label><span>&nbsp;</span><input
+					type="submit" value="Submit" /></label>
+			</fieldset>
+		</form>
+	</div>
 </body>
 </html>
