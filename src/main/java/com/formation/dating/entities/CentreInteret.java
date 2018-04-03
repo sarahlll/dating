@@ -24,7 +24,7 @@ public class CentreInteret {
 	private String loisir;
 
 	@ManyToMany(mappedBy = "centresinterets") // mapper avec le nom de l'objet corresondant (Voir dans "Multimedia")
-	private List<Multimedia> multimedia;
+	private List<Multimedia> multimedias;
 
 	@ManyToMany
 	private List<Utilisateur> utilisateurs;

@@ -22,7 +22,7 @@ public class Multimedia {
   private String artiste;
   
   @ManyToMany
-  private List<CentreInteret> centreinterets;
+  private List<CentreInteret> centresinterets;
    
   public Multimedia(Long id, String typeMultimedia, String genre, String titre, String artiste) { 
     super(); 
