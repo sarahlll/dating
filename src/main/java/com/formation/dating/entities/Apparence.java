@@ -1,17 +1,29 @@
 package com.formation.dating.entities;
 
+import java.util.List;
+
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.OneToMany;
+import javax.validation.constraints.NotNull;
 
 @Entity
 public class Apparence {
-
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long Id;
+	@NotNull            
 	private Integer taille;
 	private String couleurYeux;
 	private String origine;
 	private String couleurCheveux;
 	private String typeCheveux;
 	private float masse;
+	
+	@OneToMany
+	private List<Utilisateur>utilisateurs;
 	
 	public Apparence(Long id, Integer taille, String couleurYeux, String origine, String couleurCheveux,
 			String typeCheveux, float masse) {

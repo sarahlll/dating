@@ -1,9 +1,13 @@
 package com.formation.dating.entities;
 
+import java.util.List;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Pattern;
@@ -30,7 +34,20 @@ public class Utilisateur {
 	//association
 	@ManyToOne
 	private Adresse adresse;
-
+	
+	@ManyToOne  // many utilisateur to one apparence
+	private Apparence apparence;
+    
+	@OneToMany
+	private List<Photo> photos;
+	
+	@ManyToMany
+	private List<CentreInteret> ci;
+	
+	@ManyToOne
+	private Situation situation;
+	
+	
 	public Utilisateur(String emailUtilisateur, String nom, String prenom, String dateDeNaissance, String description,
 			String numeroTel) {
 		super();
