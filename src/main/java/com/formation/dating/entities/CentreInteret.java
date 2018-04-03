@@ -1,16 +1,34 @@
 package com.formation.dating.entities;
 
+import java.util.List;
+
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.ManyToMany;
+import javax.validation.constraints.NotNull;
 
 @Entity
 public class CentreInteret {
-
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long Id;
+	@NotNull
 	private String fumeur;
+	@NotNull
 	private String alcool;
+	@NotNull
 	private String sport;
+	@NotNull
 	private String loisir;
-	
+
+	@ManyToMany(mappedBy = "centresinterets") // mapper avec le nom de l'objet corresondant (Voir dans "Multimedia")
+	private List<Multimedia> multimedia;
+
+	@ManyToMany
+	private List<Utilisateur> utilisateurs;
+
 	public CentreInteret(Long id, String fumeur, String alcool, String sport, String loisir) {
 		super();
 		Id = id;
@@ -21,7 +39,7 @@ public class CentreInteret {
 	}
 
 	public CentreInteret() {
-		
+
 	}
 
 	public Long getId() {
@@ -63,7 +81,5 @@ public class CentreInteret {
 	public void setLoisir(String loisir) {
 		this.loisir = loisir;
 	}
-	
-	
-	
+
 }

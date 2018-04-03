@@ -5,6 +5,7 @@ import java.util.List;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
@@ -30,21 +31,27 @@ public class Utilisateur {
 	private String description;
 	@Pattern(regexp = "^([0-9]{2})/([0-9]{2})/([0-9]{4})$", message = "le format est incorrecte!")
 	private String numeroTel;
+	
+	@ManyToMany
+	private List<Utilisateur> favoris;
+	
 
 	//association
-	@ManyToOne
+	@ManyToOne  //tjrs joindre @joinColumn
+	@JoinColumn(name="adresse")// le name ici est le nom de la colonne de jointure // 
 	private Adresse adresse;
 	
-	@ManyToOne  // many utilisateur to one apparence
+	@ManyToOne  // many "utilisateur" to one "apparence"
 	private Apparence apparence;
     
 	@OneToMany
 	private List<Photo> photos;
 	
-	@ManyToMany
-	private List<CentreInteret> ci;
+	@ManyToMany (mappedBy="utilisateurs")
+	private List<CentreInteret> centreInterets;
 	
 	@ManyToOne
+	@JoinColumn (name="situtation")
 	private Situation situation;
 	
 	
