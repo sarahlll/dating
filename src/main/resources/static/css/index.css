@@ -1,6 +1,7 @@
 body {
 	/*background-color: lightblue;*/
 	background-image: url("/img/man.png");
+	background-repeat:no-repeat;
 }
 
 <
