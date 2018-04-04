@@ -1,5 +1,5 @@
 package com.formation.dating.enums;
 
-public enum Origne {
+public enum Origine {
 Caucasienne, Asiatique, Africaine, Latino, Amerindien, Autre ;
 }

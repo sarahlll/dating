@@ -13,7 +13,20 @@ import com.formation.dating.entities.Multimedia;
 import com.formation.dating.entities.Photo;
 import com.formation.dating.entities.Situation;
 import com.formation.dating.entities.Utilisateur;
+import com.formation.dating.enums.CouleurCheveux;
+import com.formation.dating.enums.CouleursYeux;
+import com.formation.dating.enums.Fumeur;
+import com.formation.dating.enums.Genre;
+import com.formation.dating.enums.Orientation;
+import com.formation.dating.enums.Origine;
+import com.formation.dating.enums.Prefixe;
+import com.formation.dating.enums.SituationPro;
+import com.formation.dating.enums.TypeCheveux;
+import com.formation.dating.enums.TypeMultimedia;
+import com.formation.dating.enums.TypeRue;
 import com.formation.dating.services.UtilisateurService;
+
+import net.bytebuddy.dynamic.scaffold.subclass.SubclassImplementationTarget.OriginTypeResolver;
 
 @Controller
 public class ControllerDating {
@@ -37,6 +50,18 @@ public class ControllerDating {
 		mav.addObject("photo", new Photo());
 		mav.addObject("CentreInterert", new CentreInteret());
 		mav.addObject("multimedia", new Multimedia());
+		//rajouter les enums
+		mav.addObject("couleurCheveux", CouleurCheveux.values());
+		mav.addObject("couleursYeux", CouleursYeux.values());
+		mav.addObject("fumeur", Fumeur.values());
+		mav.addObject("genre", Genre.values());
+		mav.addObject("orientation", Orientation.values());
+		mav.addObject("origine", Origine.values());
+		mav.addObject("prefixe", Prefixe.values());
+		mav.addObject("situationPro", SituationPro.values());
+		mav.addObject("typeCheveux", TypeCheveux.values());
+		mav.addObject("typeMultimedia", TypeMultimedia.values());
+		mav.addObject("typeRue", TypeRue.values());
 		
 		return mav;
 		

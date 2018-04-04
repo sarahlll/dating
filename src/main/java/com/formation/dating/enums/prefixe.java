@@ -1,5 +1,5 @@
 package com.formation.dating.enums;
 
-public enum prefixe {
+public enum Prefixe {
 ter,bis;
 }
