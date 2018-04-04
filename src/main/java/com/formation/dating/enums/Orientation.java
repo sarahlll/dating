@@ -1,5 +1,5 @@
 package com.formation.dating.enums;
 
-public enum OrientationSexuelle {
+public enum Orientation {
 Hétéro, Homo, NON_Renseigne;
 }

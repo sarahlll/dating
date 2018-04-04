@@ -6,44 +6,31 @@
 <title>index dating</title>
 <link th:href=@{css/index.css} rel="stylesheet" type="text/css"
 	media="screen" />
+
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+<script type="text/javascript">
+	$(document).ready(function() {
+		$("#locales").change(function() {
+			var selectedOption = $('#locales').val();
+			if (selectedOption != '') {
+				window.location.replace('?lang=' + selectedOption);
+			}
+		});
+	});
+</script>
 </head>
 <body>
 
 	<h1>Welcome on Dating!</h1>
 	<h2 th:text="#{hello}"></h2>
-	
-	<div class="form-style-3">
-		<form>
-			<fieldset>
-				<legend>Entrez vos Informations:</legend>
-				<label for="field1"><span>Nom <span class="required">*</span></span>
-					<input type="text" class="input-field" name="field1" value="" /></label> <label
-					for="field2"><span>Prenom <span class="required">*</span></span>
-					<input type="text" class="input-field" name="field2" value="" /></label> <label
-					for="field3"><span>Email <span class="required">*</span></span>
-					<input type="email" class="input-field" name="field3" value="" /></label> <br>
 
-				<label for="field4"><span>Numero de Tel <span
-						class="required">*</span></span> <input type="text" class="input-field"
-					name="field4" value="" /></label> <label for="field5"><span>Sexe</span><select
-					name="field5" class="select-field">
-						<option value="Femme">Femme</option>
-						<option value="Homme">Homme</option>
-						<option value="Pas renseigné">Pas renseigne</option>
-				</select></label>
-			</fieldset>
-			<fieldset>
-				<label for="pseudo">Pseudo :</label> <input type="text"
-					name="pseudo" id="pseudo" /><br> <label for="pass">Mot de passe :</label> <input type="password" name="pass" id="pass" />
-			</fieldset>
-			<fieldset>
-				<legend>Description:</legend>
-				<label for="field6"><span>Presentez-vous <span
-						class="required">*</span></span> <textarea name="field6"
-						class="textarea-field"></textarea></label> <label><span>&nbsp;</span><input
-					type="submit" value="Submit" /></label>
-			</fieldset>
-		</form>
-	</div>
+	<span class="langue" th:text="#{lang.change}"></span>:
+	<select class="langue" id="locales">
+		<option value=""></option>
+		<option value="en" th:text="#{lang.eng}"></option>
+		<option value="fr" th:text="#{lang.fr}"></option>
+	</select>
+
 </body>
 </html>
