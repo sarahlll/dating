@@ -3,7 +3,7 @@
 
 <html xmlms:th="http://www.thymeleaf.org">
 <head>
-<meta charset="ISO-8859-1">
+<meta charset="UTF-8">
 <title>formulaire dating</title>
 <link th:href=@{css/index.css} rel="stylesheet" type="text/css"
 	media="screen" />
@@ -14,20 +14,27 @@
 			<fieldset>
 				<legend>Entrez vos Informations:</legend>
 				<label for="field1"><span>Nom <span class="required">*</span></span>
-					<input type="text" class="input-field" name="field1" value="" /></label> <label
-					for="field2"><span>Prenom <span class="required">*</span></span>
-					<input type="text" class="input-field" name="field2" value="" /></label> <label
-					for="field3"><span>Email <span class="required">*</span></span>
+					<input type="text" class="input-field" name="field1" value="" /></label>
+					
+					<label for="field2"><span>Prenom <span class="required">*</span></span>
+					<input type="text" class="input-field" name="field2" value="" /></label> 
+					
+					<label for="field8"><span>Date De Naissance <span class="required">*</span></span>
+					<input type="date" class="input-field" name="field8" value="" /></label> 
+					
+					<label for="field3"><span>Email <span class="required">*</span></span>
 					<input type="email" class="input-field" name="field3" value="" /></label>
-				<br> <label for="field4"><span>Numero de Tel <span
-						class="required">*</span></span> <input type="text" class="input-field"
-					name="field4" value="" /></label> <label for="field5"><span>Sexe</span><select
-					name="field5" class="select-field">
+					<br> 
+					<label for="field4"><span>Numero de Tel <span class="required">*</span></span> 
+					<input type="text" class="input-field" name="field4" value="" /></label> 
+					
+					<label for="field5"><span>Sexe</span><select name="field5" class="select-field">
 						<option value="Femme">Femme</option>
 						<option value="Homme">Homme</option>
-						<option value="Pas renseign�">Pas renseigne</option>
+						<option value="Pas renseigné">Pas renseigne</option>
 				</select></label>
 			</fieldset>
+			
 			<fieldset>
 				<label for="pseudo">Pseudo :</label> <input type="text"
 					name="pseudo" id="pseudo" /><br> <label for="pass">Mot
@@ -37,13 +44,166 @@
 				<legend>Description:</legend>
 				<label for="field6"><span>Presentez-vous <span
 						class="required">*</span></span> <textarea name="field6"
-						class="textarea-field"></textarea></label> <label><span>&nbsp;</span>
-					<label for="field7"><span>Statut Professionnel <span
-							class="required">*</span></span> <input type="text" class="input-field"
-						name="field7" value="" /></label> <input type="submit" value="Submit" /></label>
+						class="textarea-field"></textarea></label> <label> <span>&nbsp;</span>
+					
+					    
 			</fieldset>
+			<fieldset>
+				<legend>Statut</legend>
+				<label for="field11"><span>Orientation Sexuelle<span class="required">*</span></span><select name="field11" class="select-field">
+						<option value="Hétéro">Hététo</option>
+						<option value="Homo">Homo</option>
+						<option value="Autres">Autres</option>
+				</select></label>
+					
+				<label for="field7"><span>Situation Professionnelle<span class="required">*</span></span><select name="field7" class="select-field">
+						<option value="actif">Actif</option>
+						<option value="En reherche d'emploi">En recherche d'emploi</option>
+						<option value="Autres">Autres</option>
+				</select></label>
+				
+				<label for="field9"><span>Situation Personnel<span class="required">*</span></span><select name="field9" class="select-field">
+						<option value="celibataire">Célibataire</option>
+						<option value="divorce">Divorcé(e)</option>
+						<option value="veuf(ve)">Veuf(ve)</option>
+						<option value="autre">Autre</option>
+				</select></label>
+				 
+					
+				<label for="field10"><span>Nombre d'enfants<span class="required">*</span></span><select name="field10" class="select-field">
+						<option value="aucun">Aucun</option>
+						<option value="un">un enfant</option>
+						<option value="deux">deux enfants</option>
+						<option value="plus_de_deux"> Plus de deux enfants</option>
+						<option value="autre">Autre</option>
+				</select></label>
+				
+			</fieldset>
+			
+				
+			<fieldset>
+				<legend>Apparence</legend>
+				
+				<label for="field12"><span>Couleur Cheveux<span class="required">*</span></span><select name="field12" class="select-field">
+						<option value="blond">Blond</option>
+						<option value="chatain">Chatain</option>
+						<option value="brun">Brun</option>
+						<option value="noir"> Noir</option>
+						<option value="autre">Autre</option>
+				</select></label>
+				
+				<label for="field13"><span>Type Cheveux<span class="required">*</span></span><select name="field13" class="select-field">
+						<option value="court">Court</option>
+						<option value="milong">Mi-Long</option>
+						<option value="long">Long</option>
+						<option value="raide"> Raides</option>
+						<option value="bouclé">Bouclés</option>
+				</select></label>
+					
+		    	<label for="field15"><span>Origine Ethnique<span class="required">*</span></span><select name="field15" class="select-field">
+						<option value="caucas">Caucasienne</option>
+						<option value="afric">Africaine</option>
+						<option value="asia">Asiatique</option>
+						<option value="latino"> Latino</option>
+						<option value="autre">Autre</option>
+				</select></label>
+				
+			
+					
+				<label for="field16"><span>Taille<span class="required">*</span></span> 
+					<input type="text" class="input-field" name="field16" value="" /></label> 
+					
+				<label for="field17"><span>Poid<span class="required">*</span></span> 
+					<input type="text" class="input-field" name="field17" value="" /></label>
+				
+			</fieldset>
+			
+				<fieldset>
+				<legend>Photos</legend>
+				<label for="field18"><span>Inserer Votre Photo <span class="required">*</span></span> 
+					
+					<!-- ici upload photo -->
+					
+			</fieldset>
+			
+			<fieldset>
+				<legend>Centres D'Intérêt</legend>
+				<label for="field19"><span>Activité Physique<span class="required">*</span></span><select name="field19" class="select-field">
+						<option value="souvent">Souvent</option>
+						<option value="detempsentemps">Occasionnellement</option>
+						<option value="occas">Rarement</option>
+						<option value="jamais"> jamais</option>
+				</select></label>
+				
+				<label for="field27"><span>Entrer le(s) sport(s) que vous pratiquez</span> 
+					<input type="text" class="input-field" name="field27" value="" /></label> 
+					
+
+					<br>
+				<label for="field20"><span>Fumez-vous?<span class="required">*</span></span><select name="field20" class="select-field">
+						<option value="souvent">Souvent</option>
+						<option value="occas">Occasionnellement</option>
+						<option value="rarement">Rarement</option>
+						<option value="jamais"> jamais</option>
+				</select></label>
+				
+			  	
+					
+			 	<label for="field21"><span>Consommez-vous de l'alcool?<span class="required">*</span></span><select name="field21" class="select-field">
+						<option value="souvent">Souvent</option>
+						<option value="occas">Occasionnellement</option>
+						<option value="rarement">Rarement</option>
+						<option value="jamais"> jamais</option>
+				</select></label>
+				
+				<label for="field22"><span>Quels sont vos loisirs?<span class="required">*</span></span> 
+					 <textarea name="field22" class="textarea-field"></textarea></label> <label> <span>&nbsp;</span>
+					
+				
+				
+			</fieldset>
+			
+				<fieldset>
+				<legend>Multimedia</legend>
+				
+					
+				<label for="field23"><span>Type Multimedia<span class="required">*</span></span><select multiple="multiple" name="field23" class="select-field">
+						<option value="cinema">Cinema</option>
+						<option value="series">Series</option>
+						<option value="music">Musique</option>
+						<option value="egames">Jeux en ligne</option>
+						<option value="autre">Autre</option>
+				</select></label>
+				
+					
+				<label for="field24"><span>Genre<span class="required">*</span></span> 
+					<input type="text" class="input-field" name="field24" value="" /></label> 
+					
+				<label for="field24"><span>Type(s) de Film préféré(s)<span class="required">*</span></span><select multiple="multiple" name="field24" class="select-field">
+						<option value="aventure">Aventure</option>
+						<option value="comedie">Comedies</option>
+						<option value="horreur">Horreur</option>
+						<option value="fantastique">Fantastique</option>
+						<option value="romantique">Romantique</option>
+						<option value="peplum">Peplum</option>
+						<option value="polar">Polar</option>
+						<option value="comediemus">Comedie Musicale</option>
+				
+				</select></label>
+				
+			  	<label for="field25"><span>Artise préféré<span class="required">*</span></span> 
+					<input type="text" class="input-field" name="field25" value="" /></label> 
+				
+				<label for="field26"><span>Titres préféré<span class="required">*</span></span> 
+					<input type="text" class="input-field" name="field26" value="" /></label> 
+				
+			</fieldset>
+			
+			
+			
+			<input type="submit" value="Submit" /></label>
 		</form>
 	</div>
-	<a th:href=@{/connexion} > Connexion</a>
+	
 </body>
 </html>

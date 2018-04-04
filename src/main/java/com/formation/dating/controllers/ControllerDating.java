@@ -50,7 +50,7 @@ public class ControllerDating {
 		mav.addObject("photo", new Photo());
 		mav.addObject("CentreInterert", new CentreInteret());
 		mav.addObject("multimedia", new Multimedia());
-		//rajouter les enums
+		//rajout des enums
 		mav.addObject("couleurCheveux", CouleurCheveux.values());
 		mav.addObject("couleursYeux", CouleursYeux.values());
 		mav.addObject("fumeur", Fumeur.values());
