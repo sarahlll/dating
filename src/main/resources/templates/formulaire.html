@@ -33,13 +33,15 @@
 						<option value="Homme">Homme</option>
 						<option value="Pas renseigné">Pas renseigne</option>
 				</select></label>
+				
 				<fieldset><legend>Adresse</legend>
 					<label for="field29"><span>Numero <span class="required">*</span></span>
 					<input type="text" class="input-field" name="field29" value="" /></label>
 					
+					
 					<label for="field27"><span>Préfixe:<span class="required">*</span></span><select name="field27" class="select-field">
-						<option value="ter">ter</option>
-						<option value="bis">bis</option>
+						<option value="ter">Ter</option>
+						<option value="bis">Bis</option>
 						<option value="Autres">Autres</option>
 					</select></label>
 					
@@ -52,13 +54,13 @@
 					
 					<label for="field30"><span>Ville <span class="required">*</span></span>
 					<input type="text" class="input-field" name="field20" value="" /></label>
-		
-				
 					
-				
+					<label for="field30"><span>Code Postale <span class="required">*</span></span>
+					<input type="text" class="input-field" name="field30" value="" /></label>
+		
 			</fieldset>
 			
-			<fieldset>
+			<fieldset><legend>Connexion</legend>
 				<label for="pseudo">Pseudo :</label> <input type="text"
 					name="pseudo" id="pseudo" /><br> <label for="pass">Mot
 					de passe :</label> <input type="password" name="pass" id="pass" />
@@ -68,9 +70,13 @@
 				<label for="field6"><span>Presentez-vous <span
 						class="required">*</span></span> <textarea name="field6"
 						class="textarea-field"></textarea></label> <label> <span>&nbsp;</span>
-					
-					    
+			</fieldset>		
+		 	
+		 	<fieldset><legend>Vos Photos</legend>
+		 	<label for="field31"><span>Insérerez photo <span class="required">*</span></span>	
+ 			<input type="file" id="photo" th:field="*{photo.lien}" />
 			</fieldset>
+			
 			<fieldset>
 				<legend>Statut</legend>
 				<label for="field11"><span>Orientation Sexuelle<span class="required">*</span></span><select name="field11" class="select-field">
