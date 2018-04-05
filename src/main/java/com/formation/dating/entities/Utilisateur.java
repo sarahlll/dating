@@ -33,7 +33,7 @@ public class Utilisateur {
 	private String numeroTel;
 	
 	private String pseudo;
-	private Integer motDePasse;
+	private String motDePasse;
 	private String sexe;
 	
 	
@@ -139,7 +139,7 @@ public class Utilisateur {
 
 
 	public Utilisateur(String emailUtilisateur, String nom, String prenom, String dateDeNaissance, String description,
-			String numeroTel,String pseudo, Integer motDePasse) {
+			String numeroTel,String pseudo, String motDePasse) {
 		super();
 		this.emailUtilisateur = emailUtilisateur;
 		this.nom = nom;
@@ -211,11 +211,11 @@ public class Utilisateur {
 		this.pseudo = pseudo;
 	}
 
-	public Integer getMotDePasse() {
+	public String getMotDePasse() {
 		return motDePasse;
 	}
 
-	public void setMotDePasse(Integer motDePasse) {
+	public void setMotDePasse(String motDePasse) {
 		this.motDePasse = motDePasse;
 	}
 	

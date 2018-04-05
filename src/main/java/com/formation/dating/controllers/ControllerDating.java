@@ -1,5 +1,7 @@
 package com.formation.dating.controllers;
 
+import static org.hamcrest.CoreMatchers.nullValue;
+
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
@@ -8,8 +10,8 @@ import javax.servlet.http.HttpSession;
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.convert.JodaTimeConverters.LocalDateTimeToJodaLocalDateTime;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.ModelMap;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
@@ -141,6 +143,31 @@ public class ControllerDating {
 		return new ModelAndView("connexion.html").addObject("utilisateur", utilisateur);
 	}
 	
+	//Mapping
+	@GetMapping (value="/connexion")
+	public String afficherConnexion(ModelMap modelmap) {
+		
+		modelmap.addAttribute("utilisateur", new Utilisateur());
+		
+		return "connexion";
+		
+	}
+	@PostMapping(value="/connexion")
+	public String verifConnect(@ModelAttribute(value="utilisateur")  Utilisateur utilisateur,HttpSession httpsession)
+	{
+		System.out.println(utilisateur.getEmailUtilisateur()+utilisateur.getMotDePasse());
+		Utilisateur utilisateu2 = us.findUtilisateurByEmailUtilisateurAndMotDePasse(utilisateur.getEmailUtilisateur(),utilisateur.getMotDePasse());
+		System.out.println(utilisateur.getEmailUtilisateur()+utilisateur.getMotDePasse());
+		
+		if(utilisateur==null) {
+			return "redirect:/connexion";
+		}else {
+			session(httpsession, utilisateur);
+			return"redirect:/index";
+		}
+		
+	}
+	
 	
 	 //ajout session
 	public void session (HttpSession httpSession, Utilisateur utilisateur) {
@@ -157,11 +184,11 @@ public class ControllerDating {
 	httpSession.setMaxInactiveInterval(60*30);
 	
 	}
-	@GetMapping("/logout")
+	@GetMapping(value="/logout")
 	public String logout(HttpSession httpSession)
 	{
 		httpSession.invalidate();
-		return "redirect:/";
+		return "index";
 		}
 	}
 

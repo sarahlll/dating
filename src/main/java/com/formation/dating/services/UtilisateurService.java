@@ -50,4 +50,8 @@ public class UtilisateurService {
 	{
 		ur.deleteById(id);
 	}
+	public Utilisateur findUtilisateurByEmailUtilisateurAndMotDePasse (String emailUtilisateur, String MotDePasse )
+	{
+	return	ur.findUtilisateurByEmailUtilisateurAndMotDePasse(emailUtilisateur, MotDePasse);
+	}
 }

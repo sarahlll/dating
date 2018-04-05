@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+
+<html xmlms:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>vous etes connecté on dating</title>
+<link th:href=@{css/index.css} rel="stylesheet" type="text/css"
+	media="screen" />
+
+
+</head>
+<body>
+	<form th:action=@{/connexion} method="post">
+		<fieldset><legend>Connexion</legend>
+					
+					<label for="pseudo"><span>Pseudo<span class="required">*</span></span>
+					<input type="text" class="input-field" th:field="*{utilisateur.pseudo}"  /></label>
+					
+					<label for="motDePasse"><span>Mot de Passe <span class="required">*</span></span>
+					<input type="password" class="input-field" th:field="*{utilisateur.motDePasse}"  /></label>
+			</fieldset>
+			<input type="submit" value="">
+
+
+</form>
+
+</body>
+</html>
