@@ -29,7 +29,7 @@ public class Utilisateur {
 	private String dateDeNaissance;
 	@Column(length = 100)
 	private String description;
-	@Pattern(regexp = "^([0-9]{2})/([0-9]{2})/([0-9]{4})$", message = "le format est incorrecte!")
+	//@Pattern(regexp = "^([0-9]{2})/([0-9]{2})/([0-9]{4})$", message = "le format est incorrecte!")
 	private String numeroTel;
 	
 	private String pseudo;

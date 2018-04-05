@@ -114,21 +114,21 @@ public class ControllerDating {
 		            @Valid @ModelAttribute(value = "situation") Situation situation, BindingResult situationResult,
 		            @Valid @ModelAttribute(value = "apparence") Apparence apparence, BindingResult apparenceResult,
 		            @Valid @ModelAttribute(value = "photo") Photo photo, BindingResult photoResult,
-		            @Valid @ModelAttribute(value = "multimedia") Multimedia media, BindingResult mediaResult,
+		            @Valid @ModelAttribute(value = "multimedia") Multimedia multimedia, BindingResult mediaResult,
 		            @Valid @ModelAttribute(value = "centreInteret") CentreInteret centreInteret, BindingResult ciResult) {
 //		System.out.println(adresse.toString());
 		ads.add(adresse);
 		ss.add(situation);
 		as.add(apparence);
 		ps.add(photo);
-		ms.add(media);
+		ms.add(multimedia);
 
 		
 		utilisateur.setAdresse(adresse);
         utilisateur.setApparence(apparence);
 
         	List<Multimedia> medias= new ArrayList<Multimedia>();
-        	medias.add(media);
+        	medias.add(multimedia);
         	
         centreInteret.setMultimedias(medias);
         cs.add(centreInteret);
@@ -164,6 +164,15 @@ public class ControllerDating {
 		return "redirect:/";
 		}
 	}
+
+
+
+
+
+
+
+
+
 
 /*
  * @GetMapping(value = "/") // arrivé à la racine de mon projet public

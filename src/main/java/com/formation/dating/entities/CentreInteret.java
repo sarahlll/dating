@@ -16,11 +16,11 @@ public class CentreInteret {
 	private Long Id;
 		@NotNull
 	private String fumeur;
-		@NotNull
+	@NotNull
 	private String alcool;
-		@NotNull
+	@NotNull
 	private String sport;
-		@NotNull
+//		@NotNull
 	private String loisir;
 
 		@ManyToMany(mappedBy = "centresinterets") // mapper avec le nom de l'objet corresondant (Voir dans "Multimedia")

@@ -9,8 +9,8 @@ import javax.persistence.Id;
 
 @Entity
 public class Situation {
-	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
+@Id
+@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long Id;
 	private String statutPerso;
 	private String statutPro;
@@ -29,11 +29,13 @@ public class Situation {
 	public Situation() {
 	}
 
-	public long getId() {
+	
+
+	public Long getId() {
 		return Id;
 	}
 
-	public void setId(long id) {
+	public void setId(Long id) {
 		Id = id;
 	}
 
