@@ -5,6 +5,8 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
+
+
 @Entity
 public class Situation {
 	@Id
@@ -15,9 +17,9 @@ public class Situation {
 	private Integer nbreEnfant;
 	private String orientation;
 
-	public Situation(long id, String statutPerso, String statutPro, Integer nbreEnfant, String orientation) {
+	public Situation( String statutPerso, String statutPro, Integer nbreEnfant, String orientation) {
 		super();
-		Id = id;
+		
 		this.statutPerso = statutPerso;
 		this.statutPro = statutPro;
 		this.nbreEnfant = nbreEnfant;

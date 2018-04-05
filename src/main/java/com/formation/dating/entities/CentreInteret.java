@@ -11,22 +11,22 @@ import javax.validation.constraints.NotNull;
 
 @Entity
 public class CentreInteret {
-	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
+		@Id
+		@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long Id;
-	@NotNull
+		@NotNull
 	private String fumeur;
-	@NotNull
+		@NotNull
 	private String alcool;
-	@NotNull
+		@NotNull
 	private String sport;
-	@NotNull
+		@NotNull
 	private String loisir;
 
-	@ManyToMany(mappedBy = "centresinterets") // mapper avec le nom de l'objet corresondant (Voir dans "Multimedia")
+		@ManyToMany(mappedBy = "centresinterets") // mapper avec le nom de l'objet corresondant (Voir dans "Multimedia")
 	private List<Multimedia> multimedias;
 
-	@ManyToMany
+		@ManyToMany
 	private List<Utilisateur> utilisateurs;
 
 	public CentreInteret(Long id, String fumeur, String alcool, String sport, String loisir) {
@@ -80,6 +80,14 @@ public class CentreInteret {
 
 	public void setLoisir(String loisir) {
 		this.loisir = loisir;
+	}
+
+	public List<Multimedia> getMultimedias() {
+		return multimedias;
+	}
+
+	public void setMultimedias(List<Multimedia> multimedias) {
+		this.multimedias = multimedias;
 	}
 
 }

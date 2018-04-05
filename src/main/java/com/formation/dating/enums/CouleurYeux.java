@@ -1,5 +1,5 @@
 package com.formation.dating.enums;
 
-public enum CouleursYeux {
+public enum CouleurYeux {
 	Vert, Bleu, Marron, Brun, Indefini;
 }

@@ -8,21 +8,20 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
-import javax.validation.constraints.NotBlank;
 
 @Entity
 public class Adresse {
-	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
+		@Id
+		@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long Id;
-	@NotBlank
-	@Column(name = "codePostale", length = 10)
+		
+		@Column(name = "codePostale", length = 10)
 	private Integer codePostale;
-	@NotBlank
-	@Column (name = "ville", length = 50)
+		
+		@Column (name = "ville", length = 50)
 	private String ville;
-	@NotBlank
-	@Column (name = "numero", length = 10)
+	
+		@Column (name = "numero", length = 10)
 	private Integer numero;
 	
 	private String complement;

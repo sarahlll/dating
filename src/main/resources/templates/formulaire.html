@@ -10,7 +10,7 @@
 </head>
 <body>
 	<div class="form-style-3">
-		<form th:action=@{/formulaire}>
+		<form th:action=@{/formulaire} method="post">
 			<fieldset>
 				<legend>Entrez vos Informations:</legend>
 				
@@ -21,7 +21,7 @@
 					<input type="text" class="input-field" th:field="*{utilisateur.prenom}" /></label> 
 					
 					<label for="dateDeNaissance"><span>Date De Naissance <span class="required">*</span></span>
-					<input type="text" class="input-field" th:field="*{utilisateur.dateDeNaissance}" /></label> 
+					<input type="date" class="input-field" th:field="*{utilisateur.dateDeNaissance}" /></label> 
 					
 					<label for="emailUtilisateur"><span>Email <span class="required">*</span></span>
 					<input type="email" class="input-field" th:field="*{utilisateur.emailUtilisateur}"/></label>
@@ -29,12 +29,7 @@
 					<label for="numeroTel"><span>Numero de Tel <span class="required">*</span></span> 
 					<input type="text" class="input-field" th:field="*{utilisateur.numeroTel}" /></label> 
 					
-					<label for="field5"><span>Sexe</span>
-					<select name="field5" class="select-field">
-						<option value="Femme">Femme</option>
-						<option value="Homme">Homme</option>
-						<option value="Pas renseigné">Pas renseigne</option>
-				   </select></label>
+					
 				   
 				   <label for="sexe"><span>Sexe:<span class="required">*</span></span>
 					<select th:field="*{utilisateur.sexe}" id=sexe>
@@ -75,19 +70,20 @@
 					<input type="text" class="input-field" th:field="*{utilisateur.pseudo}"  /></label>
 					
 					<label for="motDePasse"><span>Mot de Passe <span class="required">*</span></span>
-					<input type="text" class="input-field" th:field="*{utilisateur.motDePasse}"  /></label>
+					<input type="password" class="input-field" th:field="*{utilisateur.motDePasse}"  /></label>
 			</fieldset>
 			
 			
 			<fieldset>
 				<legend>Description:</legend>
-				<label for="field6"><span>Presentez-vous <span
-						class="required">*</span></span> <textarea name="field6"
-						class="textarea-field"></textarea></label> <label> <span>&nbsp;</span>
+				
+				<label for="description"><span>Presentez-vous <span
+						class="required">*</span></span> 
+						<textarea name="description" class="textarea-field" th:field="*{utilisateur.description}"></textarea></label> <label> <span>&nbsp;</span>
 			</fieldset>		
 		 	
 		 	<fieldset><legend>Vos Photos</legend>
-		 	<label for="photo"><span>Insérerez photo <span class="required">*</span></span>	
+		 	<label for="photo"><span>Insérerez photo </span>	
  			<input type="file" id="photo" th:field="*{photo.lien}" />
 			</fieldset>
 			

@@ -78,6 +78,66 @@ public class Utilisateur {
 	private Situation situation;
 	
 	
+	public List<Utilisateur> getFavoris() {
+		return favoris;
+	}
+
+
+	public void setFavoris(List<Utilisateur> favoris) {
+		this.favoris = favoris;
+	}
+
+
+	public Adresse getAdresse() {
+		return adresse;
+	}
+
+
+	public void setAdresse(Adresse adresse) {
+		this.adresse = adresse;
+	}
+
+
+	public Apparence getApparence() {
+		return apparence;
+	}
+
+
+	public void setApparence(Apparence apparence) {
+		this.apparence = apparence;
+	}
+
+
+	public List<Photo> getPhotos() {
+		return photos;
+	}
+
+
+	public void setPhotos(List<Photo> photos) {
+		this.photos = photos;
+	}
+
+
+	public List<CentreInteret> getCentreInterets() {
+		return centreInterets;
+	}
+
+
+	public void setCentreInterets(List<CentreInteret> centreInterets) {
+		this.centreInterets = centreInterets;
+	}
+
+
+	public Situation getSituation() {
+		return situation;
+	}
+
+
+	public void setSituation(Situation situation) {
+		this.situation = situation;
+	}
+
+
 	public Utilisateur(String emailUtilisateur, String nom, String prenom, String dateDeNaissance, String description,
 			String numeroTel,String pseudo, Integer motDePasse) {
 		super();
