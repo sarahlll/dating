@@ -27,14 +27,16 @@ public class Adresse {
 	
 	private String complement;
 	private String prefixe;
-	
+	private String typeRue;
 	
 	//association 
 	@OneToMany
 	private List<Utilisateur>utilisateur;
 	
 	
-	public Adresse(Long id, Integer codePostale, String ville, Integer numero, String complement, String prefixe) {
+	
+
+	public Adresse(Long id, Integer codePostale, String ville, Integer numero, String complement, String prefixe, String typeRue) {
 		super();
 		Id = id;
 		this.codePostale = codePostale;
@@ -42,6 +44,7 @@ public class Adresse {
 		this.numero = numero;
 		this.complement = complement;
 		this.prefixe = prefixe;
+		this.typeRue = typeRue;
 	}
 
 	public Adresse() {
@@ -94,6 +97,14 @@ public class Adresse {
 
 	public void setPrefixe(String prefixe) {
 		this.prefixe = prefixe;
+	}
+
+	public String getTypeRue() {
+		return typeRue;
+	}
+
+	public void setTypeRue(String typeRue) {
+		this.typeRue = typeRue;
 	}
 	
 	

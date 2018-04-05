@@ -3,7 +3,6 @@ package com.formation.dating.controllers;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.formation.dating.entities.Adresse;
@@ -20,13 +19,13 @@ import com.formation.dating.enums.Genre;
 import com.formation.dating.enums.Orientation;
 import com.formation.dating.enums.Origine;
 import com.formation.dating.enums.Prefixe;
+import com.formation.dating.enums.Sexe;
 import com.formation.dating.enums.SituationPro;
+import com.formation.dating.enums.Sport;
 import com.formation.dating.enums.TypeCheveux;
 import com.formation.dating.enums.TypeMultimedia;
 import com.formation.dating.enums.TypeRue;
 import com.formation.dating.services.UtilisateurService;
-
-import net.bytebuddy.dynamic.scaffold.subclass.SubclassImplementationTarget.OriginTypeResolver;
 
 @Controller
 public class ControllerDating {
@@ -48,8 +47,10 @@ public class ControllerDating {
 		mav.addObject("situation", new Situation());
 		mav.addObject("apparence", new Apparence());
 		mav.addObject("photo", new Photo());
-		mav.addObject("CentreInterert", new CentreInteret());
+		mav.addObject("centreInterert", new CentreInteret());
 		mav.addObject("multimedia", new Multimedia());
+		
+		
 		//rajout des enums
 		mav.addObject("couleurCheveux", CouleurCheveux.values());
 		mav.addObject("couleursYeux", CouleursYeux.values());
@@ -62,6 +63,8 @@ public class ControllerDating {
 		mav.addObject("typeCheveux", TypeCheveux.values());
 		mav.addObject("typeMultimedia", TypeMultimedia.values());
 		mav.addObject("typeRue", TypeRue.values());
+		mav.addObject("sport", Sport.values());
+		mav.addObject("sexe", Sexe.values());
 		
 		return mav;
 		

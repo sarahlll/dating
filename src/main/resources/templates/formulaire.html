@@ -10,61 +10,75 @@
 </head>
 <body>
 	<div class="form-style-3">
-		<form>
+		<form th:action=@{/formulaire}>
 			<fieldset>
 				<legend>Entrez vos Informations:</legend>
-				<label for="field1"><span>Nom <span class="required">*</span></span>
-					<input type="text" class="input-field" name="field1" value="" /></label>
+				
+					<label for="nom"><span>Nom <span class="required">*</span></span>
+					<input type="text" class="input-field" th:field="*{utilisateur.nom}" /></label>
 					
-					<label for="field2"><span>Prenom <span class="required">*</span></span>
-					<input type="text" class="input-field" name="field2" value="" /></label> 
+					<label for="prenom"><span>Prenom <span class="required">*</span></span>
+					<input type="text" class="input-field" th:field="*{utilisateur.prenom}" /></label> 
 					
-					<label for="field8"><span>Date De Naissance <span class="required">*</span></span>
-					<input type="date" class="input-field" name="field8" value="" /></label> 
+					<label for="dateDeNaissance"><span>Date De Naissance <span class="required">*</span></span>
+					<input type="text" class="input-field" th:field="*{utilisateur.dateDeNaissance}" /></label> 
 					
-					<label for="field3"><span>Email <span class="required">*</span></span>
-					<input type="email" class="input-field" name="field3" value="" /></label>
+					<label for="emailUtilisateur"><span>Email <span class="required">*</span></span>
+					<input type="email" class="input-field" th:field="*{utilisateur.emailUtilisateur}"/></label>
 					<br> 
-					<label for="field4"><span>Numero de Tel <span class="required">*</span></span> 
-					<input type="text" class="input-field" name="field4" value="" /></label> 
+					<label for="numeroTel"><span>Numero de Tel <span class="required">*</span></span> 
+					<input type="text" class="input-field" th:field="*{utilisateur.numeroTel}" /></label> 
 					
-					<label for="field5"><span>Sexe</span><select name="field5" class="select-field">
+					<label for="field5"><span>Sexe</span>
+					<select name="field5" class="select-field">
 						<option value="Femme">Femme</option>
 						<option value="Homme">Homme</option>
 						<option value="Pas renseigné">Pas renseigne</option>
-				</select></label>
+				   </select></label>
+				   
+				   <label for="sexe"><span>Sexe:<span class="required">*</span></span>
+					<select th:field="*{utilisateur.sexe}" id=sexe>
+						<option  th:each="type : ${sexe}" th:value="${type.name()}" th:text="${type}"></option>
+					</select></label>
+				 
 				
 				<fieldset><legend>Adresse</legend>
-					<label for="field29"><span>Numero <span class="required">*</span></span>
-					<input type="text" class="input-field" name="field29" value="" /></label>
 					
 					
-					<label for="field27"><span>Préfixe:<span class="required">*</span></span><select name="field27" class="select-field">
-						<option value="ter">Ter</option>
-						<option value="bis">Bis</option>
-						<option value="Autres">Autres</option>
+					<label for="numero"><span>Numero <span class="required">*</span></span>
+					<input type="text" class="input-field" th:field="*{adresse.numero}"  /></label>
+
+					
+					<label for="prefixe"><span>Préfixe:<span class="required">*</span></span>
+					<select th:field="*{adresse.prefixe}" id=prefixe>
+						
+						<option  th:each="type : ${prefixe}" th:value="${type.name()}" th:text="${type}"></option>
 					</select></label>
 					
-					<label for="field28"><span>Type de Rue:<span class="required">*</span></span><select name="field28" class="select-field">
-						<option value="rue">Rue</option>
-						<option value="bd">BD</option>
-						<option value="Allée">Allée</option>
-						<option value="chemin">Chemain</option>
+					<label for="typeRue"><span>Type de Rue:<span class="required">*</span></span>
+						<select th:field="*{adresse.typeRue}" id=typeRue>
+						
+						<option  th:each="type : ${typeRue}" th:value="${type.name()}" th:text="${type}"></option>
 					</select></label>
 					
-					<label for="field30"><span>Ville <span class="required">*</span></span>
-					<input type="text" class="input-field" name="field20" value="" /></label>
+					<label for="ville"><span>Ville <span class="required">*</span></span>
+					<input type="text" class="input-field" th:field="*{adresse.ville}"  /></label>
 					
-					<label for="field30"><span>Code Postale <span class="required">*</span></span>
-					<input type="text" class="input-field" name="field30" value="" /></label>
+					<label for="cp"><span>Code Postale <span class="required">*</span></span>
+					<input type="text" class="input-field" th:field="*{adresse.codePostale}"  /></label>
 		
 			</fieldset>
 			
 			<fieldset><legend>Connexion</legend>
-				<label for="pseudo">Pseudo :</label> <input type="text"
-					name="pseudo" id="pseudo" /><br> <label for="pass">Mot
-					de passe :</label> <input type="password" name="pass" id="pass" />
+					
+					<label for="pseud"><span>Pseudo<span class="required">*</span></span>
+					<input type="text" class="input-field" th:field="*{utilisateur.pseudo}"  /></label>
+					
+					<label for="motDePasse"><span>Mot de Passe <span class="required">*</span></span>
+					<input type="text" class="input-field" th:field="*{utilisateur.motDePasse}"  /></label>
 			</fieldset>
+			
+			
 			<fieldset>
 				<legend>Description:</legend>
 				<label for="field6"><span>Presentez-vous <span
@@ -73,117 +87,101 @@
 			</fieldset>		
 		 	
 		 	<fieldset><legend>Vos Photos</legend>
-		 	<label for="field31"><span>Insérerez photo <span class="required">*</span></span>	
+		 	<label for="photo"><span>Insérerez photo <span class="required">*</span></span>	
  			<input type="file" id="photo" th:field="*{photo.lien}" />
 			</fieldset>
 			
 			<fieldset>
 				<legend>Statut</legend>
-				<label for="field11"><span>Orientation Sexuelle<span class="required">*</span></span><select name="field11" class="select-field">
-						<option value="Hétéro">Hététo</option>
-						<option value="Homo">Homo</option>
-						<option value="Autres">Autres</option>
-				</select></label>
+								
+				<label for="orientation"><span>Orientation Sexuelle<span class="required">*</span></span>
+						<select th:field="*{situation.orientation}" id=orientation>
+						<option  th:each="type : ${orientation}" th:value="${type.name()}" th:text="${type}"></option>
+					</select></label>
 					
-				<label for="field7"><span>Situation Professionnelle<span class="required">*</span></span><select name="field7" class="select-field">
-						<option value="actif">Actif</option>
-						<option value="En reherche d'emploi">En recherche d'emploi</option>
-						<option value="Autres">Autres</option>
-				</select></label>
+				<label for="statutPro"><span>Statut Professionnelle<span class="required">*</span></span>
+				<select th:field="*{situation.statutPro}" id=statutPro>
+						<option  th:each="type : ${statutPro}" th:value="${type.name()}" th:text="${type}"></option>
+					</select></label>
 				
-				<label for="field9"><span>Situation Personnel<span class="required">*</span></span><select name="field9" class="select-field">
-						<option value="celibataire">Célibataire</option>
-						<option value="divorce">Divorcé(e)</option>
-						<option value="veuf(ve)">Veuf(ve)</option>
-						<option value="autre">Autre</option>
-				</select></label>
+				<label for="statutPerso"><span>Statut Personnelle<span class="required">*</span></span>
+				<select th:field="*{situation.statutPerso}" id=statutPerso>
+						<option  th:each="type : ${statutPerso}" th:value="${type.name()}" th:text="${type}"></option>
+					</select></label>
 				 
 					
-				<label for="field10"><span>Nombre d'enfants<span class="required">*</span></span><select name="field10" class="select-field">
-						<option value="aucun">Aucun</option>
-						<option value="un">un enfant</option>
-						<option value="deux">deux enfants</option>
-						<option value="plus_de_deux"> Plus de deux enfants</option>
-						<option value="autre">Autre</option>
-				</select></label>
-				
+				<label for="nbreEnfant"><span>Nombre d'enfants<span class="required">*</span></span>
+				<select th:field="*{situation.nbreEnfant}" id=nbreEnfant>
+						<option  th:each="type : ${nbreEnfant}" th:value="${type.name()}" th:text="${type}"></option>
+					</select></label>
+				 
 			</fieldset>
 			
 				
 			<fieldset>
 				<legend>Apparence</legend>
 				
-				<label for="field12"><span>Couleur Cheveux<span class="required">*</span></span><select name="field12" class="select-field">
-						<option value="blond">Blond</option>
-						<option value="chatain">Chatain</option>
-						<option value="brun">Brun</option>
-						<option value="noir"> Noir</option>
-						<option value="autre">Autre</option>
-				</select></label>
 				
-				<label for="field13"><span>Type Cheveux<span class="required">*</span></span><select name="field13" class="select-field">
-						<option value="court">Court</option>
-						<option value="milong">Mi-Long</option>
-						<option value="long">Long</option>
-						<option value="raide"> Raides</option>
-						<option value="bouclé">Bouclés</option>
-				</select></label>
+				
+				<label for="couleurCheveux"><span>Couleur Cheveux<span class="required">*</span></span>
+				<select th:field="*{apparence.couleurCheveux}" id=couleurCheveux>
+						<option  th:each="type : ${couleurCheveux}" th:value="${type.name()}" th:text="${type}"></option>
+					</select></label>
 					
-		    	<label for="field15"><span>Origine Ethnique<span class="required">*</span></span><select name="field15" class="select-field">
-						<option value="caucas">Caucasienne</option>
-						<option value="afric">Africaine</option>
-						<option value="asia">Asiatique</option>
-						<option value="latino"> Latino</option>
-						<option value="autre">Autre</option>
-				</select></label>
+					<label for="couleurYeux"><span>Couleur Yeux<span class="required">*</span></span>
+				<select th:field="*{apparence.couleurYeux}" id=couleurYeux>
+						<option  th:each="type : ${couleurYeux}" th:value="${type.name()}" th:text="${type}"></option>
+					</select></label>
+					
+					
+					<label for="typeCheveux"><span>Type Cheveux<span class="required">*</span></span>
+				<select th:field="*{apparence.typeCheveux}" id=typeCheveux>
+						<option  th:each="type : ${typeCheveux}" th:value="${type.name()}" th:text="${type}"></option>
+					</select></label>
+					
+					
+		    	<label for="origine"><span>Origine Ethnique<span class="required">*</span></span>
+				<select th:field="*{apparence.origine}" id=typeCheveux>
+						<option  th:each="type : ${origine}" th:value="${type.name()}" th:text="${type}"></option>
+					</select></label>
+					
 				
 			
-					
-				<label for="field16"><span>Taille<span class="required">*</span></span> 
-					<input type="text" class="input-field" name="field16" value="" /></label> 
-					
-				<label for="field17"><span>Poid<span class="required">*</span></span> 
-					<input type="text" class="input-field" name="field17" value="" /></label>
+				<label for="taille"><span>Taille <span class="required">*</span></span>
+					<input type="text" class="input-field" th:field="*{apparence.taille}" /></label> 
 				
-			</fieldset>
+				<label for="masse"><span>Poid <span class="required">*</span></span>
+					<input type="text" class="input-field" th:field="*{apparence.taille}" /></label>  
+					
+				
+				
 			
-				<fieldset>
-				<legend>Photos</legend>
-				<label for="field18"><span>Inserer Votre Photo <span class="required">*</span></span> 
-					
-					<!-- ici upload photo -->
-					
-			</fieldset>
 			
 			<fieldset>
 				<legend>Centres D'Intérêt</legend>
-				<label for="field19"><span>Activité Physique<span class="required">*</span></span><select name="field19" class="select-field">
-						<option value="souvent">Souvent</option>
-						<option value="detempsentemps">Occasionnellement</option>
-						<option value="occas">Rarement</option>
-						<option value="jamais"> jamais</option>
-				</select></label>
+								
 				
-				<label for="field27"><span>Entrer le(s) sport(s) que vous pratiquez</span> 
-					<input type="text" class="input-field" name="field27" value="" /></label> 
+				<label for="sport"><span>Activité Physique<span class="required">*</span></span>
+				<select th:field="*{centreInterert.sport}" id=sport>
+						<option  th:each="type : ${sport}" th:value="${type.name()}" th:text="${type}"></option>
+					</select></label>
+				
+				<label for="typesport"><span>Entrer le(s) sport(s) que vous pratiquez</span> 
+					<input type="text" class="input-field" name="typesport" value="" /></label> 
 					
 
 					<br>
-				<label for="field20"><span>Fumez-vous?<span class="required">*</span></span><select name="field20" class="select-field">
-						<option value="souvent">Souvent</option>
-						<option value="occas">Occasionnellement</option>
-						<option value="rarement">Rarement</option>
-						<option value="jamais"> jamais</option>
-				</select></label>
+				<label for="fumeur"><span>Fumez-vous?<span class="required">*</span></span>
+				<select th:field="*{centreInterert.fumeur}" id=sport>
+						<option  th:each="type : ${fumeur}" th:value="${type.name()}" th:text="${type}"></option>
+					</select></label>
+				
 				
 			  	
-					
-			 	<label for="field21"><span>Consommez-vous de l'alcool?<span class="required">*</span></span><select name="field21" class="select-field">
-						<option value="souvent">Souvent</option>
-						<option value="occas">Occasionnellement</option>
-						<option value="rarement">Rarement</option>
-						<option value="jamais"> jamais</option>
-				</select></label>
+			 	<label for="alcool"><span>Consommez-vous de l'alcool?<span class="required">*</span></span>
+				<select th:field="*{centreInterert.alcool}" id=alcool>
+						<option  th:each="type : ${alcool}" th:value="${type.name()}" th:text="${type}"></option>
+					</select></label>
 				
 				<label for="field22"><span>Quels sont vos loisirs?<span class="required">*</span></span> 
 					 <textarea name="field22" class="textarea-field"></textarea></label> <label> <span>&nbsp;</span>
@@ -196,33 +194,28 @@
 				<legend>Multimedia</legend>
 				
 					
-				<label for="field23"><span>Type Multimedia<span class="required">*</span></span><select multiple="multiple" name="field23" class="select-field">
-						<option value="cinema">Cinema</option>
-						<option value="series">Series</option>
-						<option value="music">Musique</option>
-						<option value="egames">Jeux en ligne</option>
-						<option value="autre">Autre</option>
-				</select></label>
+				
+				
+					<label for="typeMultimedia"><span>Type Multimedia?<span class="required">*</span></span>
+				<select th:field="*{multimedia.typeMultimedia}" id=typeMultimedia>
+						<option  th:each="type : ${typeMultimedia}" th:value="${type.name()}" th:text="${type}"></option>
+					</select></label>
 				
 					
-				<label for="field24"><span>Type(s) de Film préféré(s)<span class="required">*</span></span><select multiple="multiple" name="field24" class="select-field">
-						<option value="aventure">Aventure</option>
-						<option value="comedie">Comedies</option>
-						<option value="horreur">Horreur</option>
-						<option value="fantastique">Fantastique</option>
-						<option value="romantique">Romantique</option>
-						<option value="peplum">Peplum</option>
-						<option value="polar">Polar</option>
-						<option value="comediemus">Comedie Musicale</option>
+			
 				
-				</select></label>
+					<label for="genre"><span>Genre(s) de Film préféré(s)<span class="required">*</span></span>
+				<select th:field="*{multimedia.genre}" id=genre>
+						<option  th:each="type : ${genre}" th:value="${type.name()}" th:text="${type}"></option>
+					</select></label>
+						
+					<label for="artiste"><span>Artiste(s) préféré(s) <span class="required">*</span></span>
+					<input type="text" class="input-field" th:field="*{multimedia.artiste}" /></label>
 				
-			  	<label for="field25"><span>Artiste(s) préféré<span class="required">*</span></span> 
-					<input type="text" class="input-field" name="field25" value="" /></label> 
-				
-				<label for="field26"><span>Titres préféré<span class="required">*</span></span> 
-					<input type="text" class="input-field" name="field26" value="" /></label> 
-				
+					<label for="titre"><span>Titre(s) préféré(s) <span class="required">*</span></span>
+					<input type="text" class="input-field" th:field="*{multimedia.titre}" /></label>
+					
+			  
 			</fieldset>
 			
 			

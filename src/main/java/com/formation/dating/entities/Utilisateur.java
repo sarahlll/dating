@@ -32,6 +32,29 @@ public class Utilisateur {
 	@Pattern(regexp = "^([0-9]{2})/([0-9]{2})/([0-9]{4})$", message = "le format est incorrecte!")
 	private String numeroTel;
 	
+	private String pseudo;
+	private Integer motDePasse;
+	private String sexe;
+	
+	
+	
+	
+
+	public Utilisateur(String sexe) {
+		super();
+		this.sexe = sexe;
+	}
+	
+
+	public String getSexe() {
+		return sexe;
+	}
+
+	public void setSexe(String sexe) {
+		this.sexe = sexe;
+	}
+
+
 	@ManyToMany
 	private List<Utilisateur> favoris;
 	
@@ -56,7 +79,7 @@ public class Utilisateur {
 	
 	
 	public Utilisateur(String emailUtilisateur, String nom, String prenom, String dateDeNaissance, String description,
-			String numeroTel) {
+			String numeroTel,String pseudo, Integer motDePasse) {
 		super();
 		this.emailUtilisateur = emailUtilisateur;
 		this.nom = nom;
@@ -64,6 +87,8 @@ public class Utilisateur {
 		this.dateDeNaissance = dateDeNaissance;
 		this.description = description;
 		this.numeroTel = numeroTel;
+		this.pseudo = pseudo;
+		this.motDePasse = motDePasse;
 	}
 
 	public Utilisateur() {
@@ -118,4 +143,20 @@ public class Utilisateur {
 		this.numeroTel = numeroTel;
 	}
 
+	public String getPseudo() {
+		return pseudo;
+	}
+
+	public void setPseudo(String pseudo) {
+		this.pseudo = pseudo;
+	}
+
+	public Integer getMotDePasse() {
+		return motDePasse;
+	}
+
+	public void setMotDePasse(Integer motDePasse) {
+		this.motDePasse = motDePasse;
+	}
+	
 }
