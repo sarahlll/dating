@@ -11,6 +11,7 @@ import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Pattern;
 
 @Entity
 public class Utilisateur {
@@ -28,8 +29,9 @@ public class Utilisateur {
 	private String dateDeNaissance;
 	@Column(length = 100)
 	private String description;
-	//@Pattern(regexp = "^([0-9]{2})/([0-9]{2})/([0-9]{4})$", message = "le format est incorrecte!")
-	private String numeroTel;
+	@Column(name = "phone", length = 10)
+	//@Pattern(regexp = "^([0-9]{2})/([0-9]{2})/([0-9]{4})$", message ="{com.formation.dating.constraint.numeroTel.message}")
+		private String numeroTel;
 	
 	private String pseudo;
 	private String motDePasse;
