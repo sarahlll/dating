@@ -3,21 +3,21 @@
 <html xmlms:th="http://www.thymeleaf.org">
 <head>
 <meta charset="UTF-8">
-<title>vous etes connecté on dating</title>
+<title>connexion</title>
 <link th:href=@{css/index.css} rel="stylesheet" type="text/css"
 	media="screen" />
 
 
 </head>
 <body>
-	<form th:action=@{/connexion} method="post">
+	<form th:action=@{/connexion} th:object="${utilisateur}" method="post">
 		<fieldset><legend>Connexion</legend>
 					
 					<label for="emailUtilisateur"><span>Email Utilisateur<span class="required">*</span></span>
-					<input type="email" class="input-field" th:field="*{utilisateur.emailUtilisateur}"  /></label>
+					<input type="email" class="input-field" th:field="*{emailUtilisateur}"  /></label>
 					
 					<label for="motDePasse"><span>Mot de Passe <span class="required">*</span></span>
-					<input type="password" class="input-field" th:field="*{utilisateur.motDePasse}"  /></label>
+					<input type="password" class="input-field" th:field="*{motDePasse}"  /></label>
 			</fieldset>
 			<input type="submit" value="send">
 

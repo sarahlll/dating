@@ -149,7 +149,7 @@ public class ControllerDating {
 		
 		modelmap.addAttribute("utilisateur", new Utilisateur());
 		
-		return "login";// lorsque on met url "/connexion" on ns retourne "login"
+		return "login";// lorsque on met url "/connexion" on ns retourne "login
 		
 	}
 	@PostMapping(value="/connexion")
