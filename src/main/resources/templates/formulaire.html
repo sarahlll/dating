@@ -27,7 +27,7 @@
 					<input type="email" class="input-field" th:field="*{utilisateur.emailUtilisateur}"/></label>
 					<br> 
 					<label for="numeroTel"><span>Numero de Tel <span class="required">*</span></span> 
-					<input type="text" class="input-field" th:field="*{utilisateur.numeroTel}" /></label> 
+					<input type="text" class="input-field" th:field="*{utilisateur.numeroTel}"/></label> 
 					
 					
 				   
@@ -158,7 +158,7 @@
 								
 				
 				<label for="sport"><span>Activité Physique<span class="required">*</span></span>
-				<select th:field="*{centreInterert.sport}" id=sport>
+				<select th:field="*{centreInteret.sport}" id=sport>
 						<option  th:each="type : ${sport}" th:value="${type.name()}" th:text="${type}"></option>
 					</select></label>
 				
@@ -168,14 +168,14 @@
 
 					<br>
 				<label for="fumeur"><span>Fumez-vous?<span class="required">*</span></span>
-				<select th:field="*{centreInterert.fumeur}" id=sport>
+				<select th:field="*{centreInteret.fumeur}" id=sport>
 						<option  th:each="type : ${fumeur}" th:value="${type.name()}" th:text="${type}"></option>
 					</select></label>
 				
 				
 			  	
 			 	<label for="alcool"><span>Consommez-vous de l'alcool?<span class="required">*</span></span>
-				<select th:field="*{centreInterert.alcool}" id=alcool>
+				<select th:field="*{centreInteret.alcool}" id=alcool>
 						<option  th:each="type : ${alcool}" th:value="${type.name()}" th:text="${type}"></option>
 					</select></label>
 				

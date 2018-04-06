@@ -14,10 +14,10 @@ public class Situation {
 	private Long Id;
 	private String statutPerso;
 	private String statutPro;
-	private Integer nbreEnfant;
+	private String nbreEnfant;
 	private String orientation;
 
-	public Situation( String statutPerso, String statutPro, Integer nbreEnfant, String orientation) {
+	public Situation( String statutPerso, String statutPro, String nbreEnfant, String orientation) {
 		super();
 		
 		this.statutPerso = statutPerso;
@@ -55,11 +55,11 @@ public class Situation {
 		this.statutPro = statutPro;
 	}
 
-	public Integer getNbreEnfant() {
+	public String getNbreEnfant() {
 		return nbreEnfant;
 	}
 
-	public void setNbreEnfant(Integer nbreEnfant) {
+	public void setNbreEnfant(String nbreEnfant) {
 		this.nbreEnfant = nbreEnfant;
 	}
 
