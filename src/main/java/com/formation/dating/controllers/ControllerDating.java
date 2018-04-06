@@ -149,21 +149,21 @@ public class ControllerDating {
 		
 		modelmap.addAttribute("utilisateur", new Utilisateur());
 		
-		return "connexion";
+		return "login";// lorsque on met url "/connexion" on ns retourne "login"
 		
 	}
 	@PostMapping(value="/connexion")
 	public String verifConnect(@ModelAttribute(value="utilisateur")  Utilisateur utilisateur,HttpSession httpsession)
 	{
 		System.out.println(utilisateur.getEmailUtilisateur()+utilisateur.getMotDePasse());
-		Utilisateur utilisateu2 = us.findUtilisateurByEmailUtilisateurAndMotDePasse(utilisateur.getEmailUtilisateur(),utilisateur.getMotDePasse());
-		System.out.println(utilisateur.getEmailUtilisateur()+utilisateur.getMotDePasse());
+		Utilisateur utilisateur2 = us.findUtilisateurByEmailUtilisateurAndMotDePasse(utilisateur.getEmailUtilisateur(),utilisateur.getMotDePasse());
+		System.out.println(utilisateur2.getEmailUtilisateur()+utilisateur2.getMotDePasse());
 		
-		if(utilisateur==null) {
+		if(utilisateur2==null) {
 			return "redirect:/connexion";
 		}else {
-			session(httpsession, utilisateur);
-			return"redirect:/index";
+			session(httpsession, utilisateur2);
+			return"index";
 		}
 		
 	}

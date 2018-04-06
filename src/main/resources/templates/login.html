@@ -13,13 +13,13 @@
 	<form th:action=@{/connexion} method="post">
 		<fieldset><legend>Connexion</legend>
 					
-					<label for="pseudo"><span>Pseudo<span class="required">*</span></span>
-					<input type="text" class="input-field" th:field="*{utilisateur.pseudo}"  /></label>
+					<label for="emailUtilisateur"><span>Email Utilisateur<span class="required">*</span></span>
+					<input type="email" class="input-field" th:field="*{utilisateur.emailUtilisateur}"  /></label>
 					
 					<label for="motDePasse"><span>Mot de Passe <span class="required">*</span></span>
 					<input type="password" class="input-field" th:field="*{utilisateur.motDePasse}"  /></label>
 			</fieldset>
-			<input type="submit" value="">
+			<input type="submit" value="send">
 
 
 </form>
