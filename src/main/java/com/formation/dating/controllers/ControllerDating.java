@@ -153,11 +153,11 @@ public class ControllerDating {
 		
 	}
 	@PostMapping(value="/connexion")
-	public String verifConnect(@ModelAttribute(value="utilisateur")  Utilisateur utilisateur,HttpSession httpsession)
+	public String verifConnexion(@ModelAttribute(value="utilisateur")  Utilisateur utilisateur,HttpSession httpsession)
 	{
 		System.out.println(utilisateur.getEmailUtilisateur()+utilisateur.getMotDePasse());
 		Utilisateur utilisateur2 = us.findUtilisateurByEmailUtilisateurAndMotDePasse(utilisateur.getEmailUtilisateur(),utilisateur.getMotDePasse());
-		System.out.println(utilisateur2.getEmailUtilisateur()+utilisateur2.getMotDePasse());
+		//System.out.println(utilisateur2.getEmailUtilisateur()+utilisateur2.getMotDePasse());
 		
 		if(utilisateur2==null) {
 			return "redirect:/connexion";
