@@ -1,7 +1,5 @@
 package com.formation.dating.controllers;
 
-import static org.hamcrest.CoreMatchers.nullValue;
-
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
@@ -18,9 +16,36 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.servlet.ModelAndView;
 
-import com.formation.dating.entities.*;
-import com.formation.dating.enums.*;
-import com.formation.dating.services.*;
+import com.formation.dating.entities.Adresse;
+import com.formation.dating.entities.Apparence;
+import com.formation.dating.entities.CentreInteret;
+import com.formation.dating.entities.Multimedia;
+import com.formation.dating.entities.Photo;
+import com.formation.dating.entities.Situation;
+import com.formation.dating.entities.Utilisateur;
+import com.formation.dating.enums.Alcool;
+import com.formation.dating.enums.CouleurCheveux;
+import com.formation.dating.enums.CouleurYeux;
+import com.formation.dating.enums.Fumeur;
+import com.formation.dating.enums.Genre;
+import com.formation.dating.enums.NbreEnfant;
+import com.formation.dating.enums.Orientation;
+import com.formation.dating.enums.Origine;
+import com.formation.dating.enums.Prefixe;
+import com.formation.dating.enums.Sexe;
+import com.formation.dating.enums.Sport;
+import com.formation.dating.enums.StatutPerso;
+import com.formation.dating.enums.StatutPro;
+import com.formation.dating.enums.TypeCheveux;
+import com.formation.dating.enums.TypeMultimedia;
+import com.formation.dating.enums.TypeRue;
+import com.formation.dating.services.AdresseService;
+import com.formation.dating.services.ApparenceService;
+import com.formation.dating.services.CentreInteretService;
+import com.formation.dating.services.MultimediaService;
+import com.formation.dating.services.PhotoService;
+import com.formation.dating.services.SituationService;
+import com.formation.dating.services.UtilisateurService;
 
 @Controller
 public class ControllerDating {
