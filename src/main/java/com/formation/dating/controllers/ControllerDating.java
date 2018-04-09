@@ -1,5 +1,9 @@
 package com.formation.dating.controllers;
 
+import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
@@ -14,7 +18,10 @@ import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.formation.dating.entities.Adresse;
 import com.formation.dating.entities.Apparence;
@@ -49,6 +56,7 @@ import com.formation.dating.services.UtilisateurService;
 
 @Controller
 public class ControllerDating {
+	private static final String UPLOADED_FOLDER = "C://Users//Formation.M2I-JAV5-04//eclipse-workspace//dating//src//main//resources//static//img//";
 	// on déclare tout nos service
 	private final UtilisateurService us;
 	private final SituationService ss;
@@ -77,8 +85,7 @@ public class ControllerDating {
 	public ModelAndView inscription() {
 		ModelAndView mav = new ModelAndView("formulaire.html");// l'html qui sera affichée
 		mav.addObject("utilisateur", new Utilisateur());
-		
-		
+
 		mav.addObject("adresse", new Adresse());
 		mav.addObject("situation", new Situation());
 		mav.addObject("apparence", new Apparence());
@@ -115,10 +122,10 @@ public class ControllerDating {
 			BindingResult apparenceResult, @Valid @ModelAttribute(value = "photo") Photo photo,
 			BindingResult photoResult, @Valid @ModelAttribute(value = "multimedia") Multimedia multimedia,
 			BindingResult mediaResult, @Valid @ModelAttribute(value = "centreInteret") CentreInteret centreInteret,
-			BindingResult ciResult) {
-		
+			@RequestParam("file") MultipartFile file, BindingResult ciResult) {
+
 		// System.out.println(adresse.toString());
-		
+
 		if (utilisateurResult.hasErrors() || adresseResult.hasErrors() || situationResult.hasErrors()
 				|| apparenceResult.hasErrors() || photoResult.hasErrors() || mediaResult.hasErrors()
 				|| ciResult.hasErrors()) {
@@ -146,19 +153,21 @@ public class ControllerDating {
 		List<Multimedia> medias = new ArrayList<Multimedia>();
 		medias.add(multimedia);
 
+		List<Photo> photos = new ArrayList<Photo>();
+		Photo picture=upload(file); 
+		
+		ps.add(picture);
+		photos.add(picture);
+		utilisateur.setPhotos(photos);
+	
+
 		centreInteret.setMultimedias(medias);
 		cs.add(centreInteret);
-
-		List<Photo> photos = new ArrayList<Photo>();
-		photos.add(photo);
-
-		utilisateur.setPhotos(photos);
+		
 		us.add(utilisateur); // add dans ma BDD
 		return new ModelAndView("connexion.html").addObject("utilisateur", utilisateur);
 	}
 
-	
-	
 	// Mapping
 	@GetMapping(value = "/connexion")
 	public String afficherConnexion(ModelMap modelmap) {
@@ -197,6 +206,7 @@ public class ControllerDating {
 		}
 		httpSession.setAttribute("email", utilisateur.getEmailUtilisateur());
 		httpSession.setAttribute("name", sessionKey);
+		httpSession.setAttribute("photo", utilisateur.getPhotos().get(0));
 		httpSession.setAttribute("pseudo", utilisateur.getPseudo());
 		httpSession.setMaxInactiveInterval(60 * 30);
 
@@ -206,6 +216,29 @@ public class ControllerDating {
 	public String logout(HttpSession httpSession) {
 		httpSession.invalidate();
 		return "index";
+	}
+
+	public Photo upload(MultipartFile file) {
+		// if (file.isEmpty()) {
+		// redirectAttributes.addFlashAttribute("message", "Please select an image");
+		// return "error";
+		// }
+		Photo pic = new Photo();
+		try {
+			byte[] bytes = file.getBytes();
+			Path path = Paths.get(UPLOADED_FOLDER + file.getOriginalFilename());
+			Files.write(path, bytes);
+
+
+				pic.setLien(file.getOriginalFilename());
+				System.out.println(file.getOriginalFilename());
+
+	
+				
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+		return pic;
 	}
 }
 

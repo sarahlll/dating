@@ -12,7 +12,10 @@
 <body>
 
 	<h1>Inscription ok!</h1>
-	<h2 th:objet="#{utilisateur}"></h2>
+	<h2 th:objet="#{utilisateur}">
+	
+</h2>
+<img th:src="@{'/img/'+${session.photo.lien}}">
 	
  -->
 

@@ -54,4 +54,8 @@ public class UtilisateurService {
 	{
 	return	ur.findUtilisateurByEmailUtilisateurAndMotDePasse(emailUtilisateur, MotDePasse);
 	}
+	public  Utilisateur findUtilisateurByEmail(String emailUtilisateur) {
+		
+		return 	ur.findUtilisateurByEmailUtilisateur(emailUtilisateur);
+	}
 }

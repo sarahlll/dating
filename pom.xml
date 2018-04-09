@@ -65,7 +65,7 @@
 	</dependencies>
 
 	<build>
-	<finalName>Dating File</finalName> <!-- changer le nom final -->
+	<finalName>DatingFile</finalName> <!-- changer le nom final -->
 		<plugins>
 			<plugin>
 				<groupId>org.springframework.boot</groupId>

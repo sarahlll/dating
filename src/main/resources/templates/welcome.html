@@ -7,5 +7,6 @@
 <body>
 Bienvenue à votre session!
 <a th:href=@{/logout} > Deonnexion</a>
+<img th:src="@{'/img/'+${session.photo.lien}}">
 </body>
 </html>
