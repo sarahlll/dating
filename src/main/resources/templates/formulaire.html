@@ -1,7 +1,7 @@
 
 <!DOCTYPE html>
 
-<html xmlms:th="http://www.thymeleaf.org">
+<html xmlns:th="http://www.thymeleaf.org">
 <head>
 <meta charset="UTF-8">
 <title>formulaire dating</title>
@@ -35,7 +35,7 @@
 					<select th:field="*{utilisateur.sexe}" id=sexe>
 						<option  th:each="type : ${sexe}" th:value="${type.name()}" th:text="${type}"></option>
 					</select></label>
-				 
+				</fieldset> 
 				
 				<fieldset><legend>Adresse</legend>
 					
@@ -79,11 +79,11 @@
 				
 				<label for="description"><span>Presentez-vous <span
 						class="required">*</span></span> 
-						<textarea name="description" class="textarea-field" th:field="*{utilisateur.description}"></textarea></label> <label> <span>&nbsp;</span>
+						<textarea name="description" class="textarea-field" th:field="*{utilisateur.description}"></textarea></label> <label> <span>&nbsp;</span></label>
 			</fieldset>		
 		 	
 		 	<fieldset><legend>Vos Photos</legend>
-		 	<label for="photo"><span>Insérerez photo </span>	
+		 	<label for="photo"><span>Insérerez photo </span></label>	
  			<input type="file" name="file" />
 			</fieldset>
 			
@@ -150,7 +150,7 @@
 					<input type="text" class="input-field" th:field="*{apparence.taille}" /></label>  
 					
 				
-				
+				</fieldset>
 			
 			
 			<fieldset>
@@ -183,7 +183,8 @@
 					 <textarea name="field22" class="textarea-field"></textarea></label> <label> <span>&nbsp;</span>
 					
 				
-				
+			</label>
+			
 			</fieldset>
 			
 				<fieldset>
@@ -216,7 +217,7 @@
 			
 			
 			
-			<input type="submit" value="Submit" /></label>
+			<input type="submit" value="Submit" />
 		</form>
 	</div>
 	

@@ -7,9 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.formation.dating.entities.CentreInteret;
-import com.formation.dating.entities.Multimedia;
 import com.formation.dating.repositories.CentreInteretRepository;
-import com.formation.dating.repositories.MultimediaRepository;
 
 @Service
 public class CentreInteretService {
